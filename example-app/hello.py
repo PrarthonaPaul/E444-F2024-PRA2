@@ -13,13 +13,22 @@ moment = Moment(app)
 
 def utoronto_email_check(form, field):
     email = field.data
-    if "utoronto" not in email:
-        raise ValidationError("Email must contain \"utoronto\".")
+    if "utoronto.ca" not in email:
+        raise ValidationError("Email must be a \"utoronto\" email.")
 
 class NameForm(FlaskForm):
 	name = StringField('What is your name?', validators=[DataRequired("Please add your first and last name.")])
 	email = StringField('What is your UofT email?', validators=[DataRequired("Please enter your email"), Email(message="Please include an '@' in the email address"), utoronto_email_check])
 	submit = SubmitField('Submit')
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_server_error(e):
+    return render_template('500.html'), 500
 
 @app.route('/')
 def home():

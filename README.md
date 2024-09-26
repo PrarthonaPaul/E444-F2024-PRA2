@@ -36,6 +36,14 @@ This repo is a clone of https://github.com/miguelgrinberg/flasky
   </kbd>
 </p>
 
+### Activity 2.4
+<p align="center"> 
+  <kbd>
+    <a href="http://127.0.0.1:5000/form" target="_blank"><img src="images/activity-2-3.png">
+  </a>
+  </kbd>
+</p>
+
 
 This repository contains the source code examples for the second edition of my O'Reilly book [Flask Web Development](http://www.flaskbook.com).
 
